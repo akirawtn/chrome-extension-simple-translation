@@ -1,0 +1,13 @@
+.ai-meaning-popup {
+  position: fixed;
+  z-index: 9999;
+  background: #fff;
+  color: #222;
+  border: 1px solid #888;
+  border-radius: 8px;
+  padding: 12px 16px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+  font-size: 16px;
+  max-width: 320px;
+  word-break: break-all;
+}

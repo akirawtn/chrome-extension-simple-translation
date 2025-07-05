@@ -1,0 +1,31 @@
+{
+  "manifest_version": 3,
+  "name": "Word Meaning Popup",
+  "version": "1.0",
+  "description": "選択したワードの意味をOpenAIで取得しポップアップ表示する拡張機能",
+  "permissions": ["scripting", "activeTab", "storage"],
+  "host_permissions": ["<all_urls>"],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["content.js"],
+      "css": ["styles.css"]
+    }
+  ],
+  "action": {
+    "default_popup": "popup.html",
+    "default_icon": {
+      "16": "cat.png",
+      "48": "cat.png",
+      "128": "cat.png"
+    }
+  },
+  "icons": {
+    "16": "cat.png",
+    "48": "cat.png",
+    "128": "cat.png"
+  }
+}

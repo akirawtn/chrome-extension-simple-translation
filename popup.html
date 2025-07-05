@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Word Meaning Popup</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <h3>Word Meaning Popup</h3>
+    <p>Webページ上でワードを選択すると意味が表示されます。</p>
+    <hr />
+    <label for="api-key-input">OpenAI APIキー:</label>
+    <input
+      type="password"
+      id="api-key-input"
+      placeholder="sk-..."
+      style="width: 220px"
+    />
+    <button id="save-api-key">保存</button>
+    <span id="save-status" style="margin-left: 8px"></span>
+    <script src="popup.js"></script>
+  </body>
+</html>
