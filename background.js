@@ -4,10 +4,15 @@ chrome.runtime.onMessage.addListener(async (msg, sender, sendResponse) => {
     chrome.storage.local.get(['OPENAI_API_KEY'], async (result) => {
       const apiKey = result.OPENAI_API_KEY;
       const meaning = await fetchMeaningFromOpenAI(msg.word, apiKey);
-      chrome.tabs.sendMessage(sender.tab.id, {
-        type: 'SHOW_MEANING_POPUP',
-        word: msg.word,
-        meaning: meaning,
+      // アクティブタブを取得してメッセージ送信
+      chrome.tabs.query({ active: true, currentWindow: true }, function (tabs) {
+        if (tabs[0]) {
+          chrome.tabs.sendMessage(tabs[0].id, {
+            type: 'SHOW_MEANING_POPUP',
+            word: msg.word,
+            meaning: meaning,
+          });
+        }
       });
     });
   }
